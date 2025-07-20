@@ -1,1 +1,1 @@
-# OMEGA EDU - LMS Sekolah Dasar
+OMEGA EDU - LMS Sekolah Dasar
