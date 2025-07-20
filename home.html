@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Website Sekolah</title>
+  <style>
+    body {
+      background-color: #F2F2F2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      padding: 40px 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    .logo img {
+      width: 130px;
+      margin-bottom: 0px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #015f86;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      background-color: #4747476B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #B4B2F7;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <img src="logo.jpg.jpg" alt="Logo Sekolah" />
+    </div>
+    <h2>OMEGA</h2>
+    <p>Silakan Masukkan Nama dan Kata Sandi</p>
+    <input type="text" id="username" placeholder="Nama Lengkap" />
+    <input type="password" id="password" placeholder="Kata Sandi" />
+    <button onclick="login()">LOGIN</button>
+    <div class="error" id="error-msg"></div>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value.trim().toLowerCase();
+      const password = document.getElementById('password').value;
+
+      const allowedUsers = [
+        { name: "arzety putri p", password: "12345678" },
+        { name: "nurlaila katrina", password: "00000000" }
+      ];
+
+      const valid = allowedUsers.find(user =>
+        user.name === username && user.password === password
+      );
+
+      if (valid) {
+        // Redirect ke beranda sekolah
+        window.location.href = "https://omegaedu.carrd.co/#home";
+      } else {
+        document.getElementById('error-msg').textContent = "Nama atau kata sandi salah!";
+      }
+    }
+  </script>
+</body>
+</html>
